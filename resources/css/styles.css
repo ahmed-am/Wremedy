@@ -364,7 +364,7 @@ div.modalHeader p{
   
   @media only screen and (min-width: 1000px){
     div.modalContent{
-      width:33%;
+      width:83%;
     }
   }
   @media only screen and (min-width: 1200px){
