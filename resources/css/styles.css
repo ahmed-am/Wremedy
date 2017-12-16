@@ -39,6 +39,7 @@ div.containerButtons:hover{
 
 div.container{
     display:flex;
+    display:-webkit-flex;
     justify-content: center;   
     align-items: center;
     height: 85%;
