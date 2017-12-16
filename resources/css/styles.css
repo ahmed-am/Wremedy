@@ -1,0 +1,177 @@
+body{
+    background: #161616;
+    overflow: hidden;
+    font-family:  'Lato',  Helvetica, Arial, sans-serif;
+    
+}
+
+video#backgroundVideo{
+    position: fixed;
+    top:50%;
+    left:50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(resources/media/videoposter.jpg);
+    background-size: cover;
+}
+
+div.containerButtons{
+    display:flex;
+    display: -webkit-flex;
+    justify-content: center;   
+    opacity:0.15;
+    height: 40px;
+    transition: all 1s;
+}
+
+div.containerButtons:hover{
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+div.container{
+    display:flex;
+    justify-content: center;   
+    align-items: center;
+    height: 85%;
+}
+
+button{
+    cursor: pointer;
+    
+}
+
+input{
+    width: 30%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    appearance: none;
+    opacity: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    transition: all 10s ease-in;
+    
+
+}
+
+div.containerButtons button{
+    margin:2px;
+    background: rgba(255, 255, 255, 0.35);
+    float:left;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border:none;
+    border-radius: 30px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.2s ease-in;
+}
+
+div.containerButtons.uw button{
+    background: rgb(149, 160, 104);
+}
+
+div.containerButtons.ms button{
+    background: #5F2912;
+}
+
+div.containerButtons button#textButton{
+    color:white;
+    font-family:  'Lato',  Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+div.containerButtons button#textButton:hover,
+div.containerButtons button#textButton:active{
+    color:black;
+}
+
+div.containerButtons button#textButton.show{
+    text-decoration: line-through;
+}
+
+div.containerButtons button#circleButton div.circle{
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border-radius: 50%;
+    background: white;
+}
+
+div.containerButtons button#circleButton.show div.circle,
+div.containerButtons button#circleButton.show:hover div.circle,
+div.containerButtons button#circleButton.show:active div.circle{
+    background: transparent;
+}
+
+div.containerButtons button#circleButton:hover div.circle,
+div.containerButtons button#circleButton:active div.circle{
+    background: black;
+}
+
+div.containerButtons button svg{
+    width: 18px;
+    height: 18px;
+}
+
+div.containerButtons button:hover{
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.1);
+}
+
+
+div.containerButtons button:hover svg path,
+div.containerButtons button:active svg path{
+    transition: all 0.3s;
+    fill: black;
+}
+
+
+button#prevButton,
+button#nextButton{
+    font-family:  'Lato',  Helvetica, Arial, sans-serif;
+    font-size: 3rem;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    color:white;
+    opacity: 0.6;
+    margin: 0px 20px 0px 20px;
+    transition: all 0.2s ease-out;
+}
+
+button#prevButton:hover,
+button#nextButton:hover{
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+button#prevButton:active,
+button#nextButton:active{
+    transition: all 0s;
+    transform: scale(1);
+}
+
+button:disabled{
+    visibility: hidden;
+}
+
