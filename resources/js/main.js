@@ -45,6 +45,8 @@ window.onload= function(){
         document.body.firstChild.remove();
         buttonsTipAnimation();
         timeline.play();
+        audio.play();
+        video.play();
     });
     
 }
@@ -87,7 +89,8 @@ function preferenceSetter(){
     console.log(color1);
     circle.tune({fill:color1});
     circle2.tune({fill:color1});
-    
+    audio.play();
+    video.play();
     
     if(preferenceIndex == 0){
         prevButton.setAttribute('disabled','true');
