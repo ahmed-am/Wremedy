@@ -1,4 +1,14 @@
 /* interface items */
+
+    /* modal */
+var modalNextButton = document.getElementById('modalNext');
+var modalPrevButton = document.getElementById('modalPrev');
+
+    /* modal instruction templates */ 
+ var modalInstruction = "<div class=\"modal\"> <div class=\"modalContent\"> <div class=\"modalHeader\"> <img class=\"image\" src='resources/media/logo-small.png' alt=\"logo\"></img> <hr> <p>Breathe, Write, Relax.</p><button id=\"closeModal\">X</button> </div><div class=\"modalBody\"> <hr> <p>Wremedy, <p class=\"small\">where nature, writing, &amp; meditation meet.</p></p><p class=\"padding\">Let's dive right in! </p><div class=\"instructions\"> <img id=\"headerIcon\" src=\"resources/media/icons/wind.png\" alt=\"\"> <div><p>Relax. Breath in & out as the circles shrinks expand.</p><p>Focus on the serenity you hear & see.</p><p>Pour out what is on your mind without stopping or thinking too much.</p></div></div></div></div></div></div>"
+ var buttonsTip = document.getElementsByClassName('buttonsTip')[0];
+
+
     /* buttons and input*/
 var audioButton = document.getElementById('audioButton');
 var circleButton = document.getElementById('circleButton');
@@ -20,17 +30,47 @@ var video = document.getElementById('backgroundVideo');
 /* variables */
 var rantText=""; /* Confirm */
 var preferenceIndex = 0;
-var preference =[{arrowButtonOpacity: 0.6, containerButtonsClass: 'uw' , breatheColor1: '' , breatheColor1: '' ,  backgroundVideo:0, audio:0}
-                ,{arrowButtonOpacity: 0.6, containerButtonsClass: 'ms' , breatheColor1: '' , breatheColor2: '' , backgroundVideo:1, audio:1}];
+var preference =[{arrowButtonOpacity: 0.6, containerButtonsClass: 'uw' , circleColor1: '#dcff5c' , circleColor2:'#bada55',  breatheColor1: '' , breatheColor1: '' ,  backgroundVideo:0, audio:0}
+                ,{arrowButtonOpacity: 0.6, containerButtonsClass: 'ms' ,circleColor1: '#f49242' , circleColor2:'#bada55',   breatheColor1: '' , breatheColor2: '' , backgroundVideo:1, audio:1}];
 
 
 
 window.onload= function(){
-    document.getElementById('textInput').style.opacity=1;
+    textInput.style.opacity=1;
+    
     preferenceSetter();
-    console.log(document.styleSheets[0]);
+    document.body.insertAdjacentHTML('afterbegin',modalInstruction);
+    modalAnimation();
+    document.getElementById('closeModal').addEventListener('click',function(){
+        document.body.firstChild.remove();
+        buttonsTipAnimation();
+        timeline.play();
+    });
+    
+}
+
+
+function modalAnimation(){
+    var modal = document.getElementsByClassName('modal')[0];
+    modal.style.opacity=0;
+    setTimeout(() => {
+        modal.style.opacity=1;
+    }, 10);
+    
+}
+
+function buttonsTipAnimation(){
+    buttonsTip.style.opacity=1;
+    buttonsTip.style.transition = 'all 3s ease-in';
+    setTimeout(() => {
+       buttonsTip.style.opacity=0; 
+    }, 3000);
+    setTimeout(() => {
+        buttonsTip.style.display='none'; 
+     }, 6000);
 
 }
+
 
 function preferenceSetter(){
     audioFile = 'resources/media/audio'+preference[preferenceIndex].audio+'.mp3';
@@ -42,6 +82,11 @@ function preferenceSetter(){
     video.setAttribute('poster',videoPoster);
     containerButtons.removeAttribute('class');
     containerButtons.setAttribute('class','containerButtons '+containerButtonsClass);
+    var color1= preference[preferenceIndex].circleColor1; 
+    var color2= preference[preferenceIndex].circleColor2;
+    console.log(color1);
+    circle.tune({fill:color1});
+    circle2.tune({fill:color1});
     
     
     if(preferenceIndex == 0){
@@ -104,6 +149,7 @@ nextButton.addEventListener('click',function(){
         preferenceSetter();
     }
     
+    
 })
 
 prevButton.addEventListener('click',function(){
@@ -160,16 +206,14 @@ document.body.addEventListener('click',function(){
 
 const circle = new mojs.Shape({
     radius:{20:500},
-    fill:{'#66a0ff':'#bada55'},
-    duration:2400,
+    duration:2100,
     opacity: {0.7:0.0},
     easing: 'sin.in'
 });
 
 const circle2 = new mojs.Shape({
     radius:{400:0},
-    fill:{'#66a0ff':'#bada55'},
-    delay:2900,
+    delay:2600,
     duration:2100,
     easing: 'sin.in',
     opacity: {0.2:0.8}
@@ -181,9 +225,10 @@ const timeline = new mojs.Timeline({
     repeat:999,
     delay:1000
 });
+
 timeline.add(circle,circle2);
 
 
 
-timeline.play();
+
 
