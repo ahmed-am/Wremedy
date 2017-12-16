@@ -352,23 +352,23 @@ div.modalHeader p{
     }
   @media only screen and (min-width: 600px) and (max-width: 699px){
     div.modalContent{
-      width:80%;
+      width:50%;
     }
   }
   
   @media only screen and (min-width: 700px) and (max-width: 999px){
     div.modalContent{
-      width:85%;
+      width:45%;
     }
   }
   
   @media only screen and (min-width: 1000px){
     div.modalContent{
-      width:83%;
+      width:33%;
     }
   }
   @media only screen and (min-width: 1200px){
     div.modalContent{
-      width:80%;
+      width:30%;
     }
   }
