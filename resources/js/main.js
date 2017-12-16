@@ -112,27 +112,27 @@ function preferenceSetter(){
 
 textInput.addEventListener('keydown',function(e){
     
-    if(e.key == ' ' )
+    if(e.keyCode == 32 ) //space
     {
         rantText = rantText + textInput.value;
         textInput.value="";
     }
-    else if(e.key == 'Enter')
+    else if(e.keyCode == 'Enter')
     {
         rantText = rantText + textInput.value;
         textInput.value="";
     }
-    else if(e.key == ';' )
+    else if(e.key == ';' ) //semicolon
     {
         rantText = rantText + textInput.value;
         textInput.value="";
     }
-    else if(e.key == ',' )
+    else if(e.keyCode == 188 ) //comma
     {
         rantText = rantText + textInput.value;
         textInput.value="";
     }
-    else if(e.key == '.')
+    else if(e.keyCode == 190) //dot
     {
         rantText = rantText + textInput.value;
         textInput.value="";
