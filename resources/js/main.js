@@ -88,7 +88,7 @@ function preferenceSetter(){
     containerButtons.setAttribute('class','containerButtons '+containerButtonsClass);
     var color1= preference[preferenceIndex].circleColor1; 
     var color2= preference[preferenceIndex].circleColor2;
-    circle.tune({fill:{color1}});
+    circle.tune({fill:color1});
     circle2.tune({fill:color1});
     audio.play();
     video.play();
