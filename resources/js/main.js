@@ -71,7 +71,7 @@ function buttonsTipAnimation(){
     }, 3000);
     setTimeout(() => {
         buttonsTip.style.display='none'; 
-        ga('send','event','click','active');
+        
      }, 6000);
 
 }
