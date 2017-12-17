@@ -48,7 +48,7 @@ window.onload= function(){
         audio.play();
         video.play();
     });
-    setTimeout(() => {
+    setInterval(() => {
         ga('send','event','click','active');
     }, 30000);
     
