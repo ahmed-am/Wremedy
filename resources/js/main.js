@@ -118,7 +118,7 @@ textInput.addEventListener('keydown',function(e){
         rantText = rantText + textInput.value;
         textInput.value="";
     }
-    else if(e.keyCode == 'Enter')
+    else if(e.key == 'Enter')
     {
         rantText = rantText + textInput.value;
         textInput.value="";
