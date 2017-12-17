@@ -71,6 +71,7 @@ function buttonsTipAnimation(){
     }, 3000);
     setTimeout(() => {
         buttonsTip.style.display='none'; 
+        ga('send','event','click','active');
      }, 6000);
 
 }
@@ -112,7 +113,7 @@ function preferenceSetter(){
 
 
 textInput.addEventListener('keydown',function(e){
-    ga('send','event','click','active');
+    
     if(e.keyCode == 32 ) //space
     {
         rantText = rantText + textInput.value;
