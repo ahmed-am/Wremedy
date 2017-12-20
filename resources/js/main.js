@@ -6,6 +6,7 @@ var modalPrevButton = document.getElementById('modalPrev');
 
     /* modal instruction templates */ 
  var modalInstruction = "<div class=\"modal\"> <div class=\"modalContent\"> <div class=\"modalHeader\"> <img class=\"image\" src='resources/media/logo-small.png' alt=\"logo\"></img> <hr> <p>Breathe, Write, Relax.</p><button id=\"closeModal\">X</button> </div><div class=\"modalBody\"> <hr> <p>Wremedy, <p class=\"small\">where nature, writing, &amp; meditation meet.</p></p><p class=\"padding\">Let's dive right in! </p><div class=\"instructions\"> <img id=\"headerIcon\" src=\"resources/media/icons/wind.png\" alt=\"\"> <div><p>Relax. Breath in & out as the circles shrinks expand.</p><p>Focus on the serenity you hear & see.</p><p>Pour out what is on your mind without stopping or thinking too much.</p></div></div></div></div></div></div>"
+ var messageModal = '<div class="modal" style="opacity: 1;"><div class="messageModalContent"><button id="closeMessageModal">X</button><p>Help make Wremedy better, leave a feedback or tell us how your experience was!</p><form id="contact-form" action="https://formspree.io/ahmed.amajeed95@gmail.com" method="post"><input type="text" name="Name" placeholder="Name (Optional)"><input type="email" name="Email" placeholder="Email (Optional)"><textarea name="Message" cols="30" rows="6" placeholder="Message" required></textarea><!-- CONFIG --><input class="is-hidden" type="text" name="_gotcha"><input type="hidden" name="_subject" value="Wremedy Feedback"><!-- /CONFIG --><input class="submit" type="submit" value="Send"></form></div></div>';
  var buttonsTip = document.getElementsByClassName('buttonsTip')[0];
 
 
@@ -17,6 +18,7 @@ var containerButtons = document.getElementsByClassName('containerButtons')[0];
 var nextButton = document.getElementById('nextButton');
 var prevButton = document.getElementById('prevButton');
 var textInput = document.getElementById('textInput');
+var messageModalButton = document.getElementById('messageModalButton');
 
     /* svgs */
 var muteSVG= '<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 124.625 124.625" style="enable-background:new 0 0 124.625 124.625;" xml:space="preserve"><g><path d="M6,92.404h23.1l25.6,19.3c4,3,9.601,0.2,9.601-4.8v-89.2c0-4.9-5.701-7.8-9.601-4.8l-25.6,19.3H6c-3.3,0-6,2.7-6,6v48.301 C0,89.704,2.7,92.404,6,92.404z" fill="#FFFFFF"/><path d="M122.4,40.604c-2.7-2.7-7.2-2.7-9.9,0l-11.8,11.8l-11.8-11.8c-2.7-2.7-7.2-2.7-9.9,0c-2.699,2.7-2.699,7.2,0,9.9 l11.801,11.8L79,74.104c-2.699,2.7-2.699,7.2,0,9.9c1.4,1.399,3.2,2.1,5,2.1c1.801,0,3.6-0.7,5-2.1l11.801-11.801L112.6,84.004 c1.4,1.399,3.201,2.1,5,2.1c1.801,0,3.601-0.7,5-2.1c2.701-2.7,2.701-7.2,0-9.9l-12-11.8l11.801-11.8 C125.1,47.804,125.1,43.304,122.4,40.604z" fill="#FFFFFF"/></g></svg>';
@@ -36,17 +38,33 @@ var preference =[{arrowButtonOpacity: 0.6, containerButtonsClass: 'uw' , circleC
 
 
 window.onload= function(){
+
     textInput.style.opacity=1;
     
-    preferenceSetter();
     document.body.insertAdjacentHTML('afterbegin',modalInstruction);
+
+    
+    
+    
+
     modalAnimation();
+
+    preferenceSetter();
     document.getElementById('closeModal').addEventListener('click',function(){
+        
+        
         document.body.firstChild.remove();
+        
         buttonsTipAnimation();
         timeline.play();
         audio.play();
         video.play();
+    });
+
+    document.getElementsByClassName('modal')[0].addEventListener('click',function(event){
+        if(event.target== document.getElementsByClassName('modal')[0]){
+            document.body.firstChild.remove();
+        }
     });
     setInterval(() => {
         ga('send','event','click','active');
@@ -78,6 +96,7 @@ function buttonsTipAnimation(){
 
 
 function preferenceSetter(){
+    
     audioFile = 'resources/media/audio'+preference[preferenceIndex].audio+'.mp3';
     videoFile = 'resources/media/video'+preference[preferenceIndex].backgroundVideo+'.mp4';
     videoPoster = 'resources/media/videoPoster'+preference[preferenceIndex].backgroundVideo+'.jpg';
@@ -202,10 +221,63 @@ circleButton.addEventListener('click',function(){
 })
 
 
+messageModalButton.addEventListener('click',function(){
+
+
+    document.body.insertAdjacentHTML('afterbegin',messageModal);
+    document.getElementById('closeMessageModal').addEventListener('click',function(){
+        document.body.firstChild.remove();
+    });
+    document.getElementsByClassName('modal')[0].addEventListener('click',function(event){
+        if(event.target== document.getElementsByClassName('modal')[0]){
+            document.body.firstChild.remove();
+        }
+    });
+
+
+
+    var $contactForm = $('#contact-form');
+    
+    $contactForm.submit(function(e) {
+        e.preventDefault();
+        var $submit = $('input:submit', $contactForm);
+        var defaultSubmitText = $submit.val();
+    
+        $.ajax({
+            url: 'https://formspree.io/ahmed.amajeed95@gmail.com',
+            method: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            beforeSend: function() {
+                //$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
+                $submit.attr('disabled', true).val('Sending message…');
+            },
+            success: function(data) {
+                //$contactForm.append('<div class="alert alert--success">Message sent!</div>');
+                $submit.val('Message sent!');
+                setTimeout(function() {
+                    //$('.alert--success').remove();
+                    $submit.attr('disabled', false).val(defaultSubmitText);
+                }, 5000);
+            },
+            error: function(err) {
+                //$contactForm.find('.alert--loading').hide();
+                //$contactForm.append('<div class="alert alert--error">Ops, there was an error.</div>');
+                $submit.val('Ops, there was an error.');
+                setTimeout(function() {
+                    //$('.alert--error').remove();
+                    $submit.attr('disabled', false).val(defaultSubmitText);
+                }, 5000);
+            }
+        });
+    });
+    
+})
+
 
 
 document.body.addEventListener('click',function(){
-    document.getElementById('textInput').focus();
+    //document.getElementById('textInput').focus();
 })
 
 
@@ -232,7 +304,6 @@ const timeline = new mojs.Timeline({
 });
 
 timeline.add(circle,circle2);
-
 
 
 
