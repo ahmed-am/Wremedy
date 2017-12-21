@@ -5,8 +5,9 @@ var modalNextButton = document.getElementById('modalNext');
 var modalPrevButton = document.getElementById('modalPrev');
 
     /* modal instruction templates */ 
- var modalInstruction = "<div class=\"modal\"> <div class=\"modalContent\"> <div class=\"modalHeader\"> <img class=\"image\" src='resources/media/logo-small.png' alt=\"logo\"></img> <hr> <p>Breathe, Write, Relax.</p><button id=\"closeModal\">X</button> </div><div class=\"modalBody\"> <hr> <p>Wremedy, <p class=\"small\">where nature, writing, &amp; meditation meet.</p></p><p class=\"padding\">Let's dive right in! </p><div class=\"instructions\"> <img id=\"headerIcon\" src=\"resources/media/icons/wind.png\" alt=\"\"> <div><p>Relax. Breath in & out as the circles shrinks expand.</p><p>Focus on the serenity you hear & see.</p><p>Pour out what is on your mind without stopping or thinking too much.</p></div></div></div></div></div></div>"
+ var modalInstruction = "<div class=\"modal\"> <div class=\"modalContent\"> <div class=\"modalHeader\"> <img class=\"image\" src='resources/media/logo-small.png' alt=\"logo\"></img> <hr> <p>Breathe, Write, Relax.</p><button id=\"closeModal\">X</button> </div><div class=\"modalBody\"> <hr> <p>Wremedy, <p class=\"small\">where nature, writing, &amp; meditation meet.</p></p><p class=\"padding\">Let's dive right in! </p><div class=\"instructions\"> <img id=\"headerIcon\" src=\"resources/media/icons/wind.png\" alt=\"\"> <div><p>Relax. Breath in & out as the circles shrinks expand.</p><p>Focus on the serenity you hear & see.</p><p>Pour out what is on your mind without stopping or thinking too much.</p><p>To see what you've written, press Enter when you are done</p></div></div></div></div></div></div>"
  var messageModal = '<div class="modal" style="opacity: 1;"><div class="messageModalContent"><button id="closeMessageModal">X</button><p>Help make Wremedy better, leave a feedback or tell us how your experience was!</p><form id="contact-form" action="https://formspree.io/ahmed.amajeed95@gmail.com" method="post"><input type="text" name="Name" placeholder="Name (Optional)"><input type="email" name="Email" placeholder="Email (Optional)"><textarea name="Message" cols="30" rows="6" placeholder="Message" required></textarea><!-- CONFIG --><input class="is-hidden" type="text" name="_gotcha"><input type="hidden" name="_subject" value="Wremedy Feedback"><!-- /CONFIG --><input class="submit" type="submit" value="Send"></form></div></div>';
+ 
  var buttonsTip = document.getElementsByClassName('buttonsTip')[0];
 
 
@@ -64,6 +65,11 @@ window.onload= function(){
     document.getElementsByClassName('modal')[0].addEventListener('click',function(event){
         if(event.target== document.getElementsByClassName('modal')[0]){
             document.body.firstChild.remove();
+
+            buttonsTipAnimation();
+            timeline.play();
+            audio.play();
+            video.play();
         }
     });
     setInterval(() => {
@@ -141,7 +147,9 @@ textInput.addEventListener('keydown',function(e){
     else if(e.key == 'Enter')
     {
         rantText = rantText + textInput.value;
+        rantTextProvider();
         textInput.value="";
+        rantText="";
     }
     else if(e.key == ';' ) //semicolon
     {
@@ -220,6 +228,32 @@ circleButton.addEventListener('click',function(){
     this.classList.toggle('show');
 })
 
+
+function rantTextProvider(){
+    var rantModal = '<div class="modal" style="opacity: 1;"> <div class="rantModalContent"> <button id="closeRantModal">X</button> <textarea id="rantMessage" name="Message" cols="30" rows="12" placeholder="Message" required>'+rantText+'</textarea> <button id="rantCopyButton">Copy &amp; Close </button> </div></div>';
+    document.body.insertAdjacentHTML('afterbegin',rantModal);
+    document.getElementById('closeRantModal').addEventListener('click',function(){
+        document.body.firstChild.remove();
+    });
+
+    document.getElementsByClassName('modal')[0].addEventListener('click',function(event){
+        if(event.target== document.getElementsByClassName('modal')[0]){
+            document.body.firstChild.remove();
+        }
+    });
+
+    document.getElementById('rantCopyButton').addEventListener('click',function(){
+        rantMessage= document.getElementById('rantMessage');
+        rantMessage.select();
+        document.execCommand('Copy');
+        this.innerText = "Copied";
+        setTimeout(() => {
+            closeRantModal = document.getElementById('closeRantModal');
+            closeRantModal.click();
+        }, 2000);
+    });
+
+} //LOL!
 
 messageModalButton.addEventListener('click',function(){
 

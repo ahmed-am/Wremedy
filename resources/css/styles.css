@@ -64,7 +64,7 @@ input#textInput{
     opacity: 0;
     -moz-appearance: none;
     -webkit-appearance: none;
-    transition: all 10s ease-in;
+    transition: all 5s ease-in;
     
 
 }
@@ -382,10 +382,9 @@ div.modalHeader p{
   }
 
   
-  div.messageModalContent{
+  div.messageModalContent,
+  div.rantModalContent{
     position: relative;
-    
-    
     background:rgba(133, 167, 81, 0.75);
     width:70%;
     height:500px;
@@ -398,7 +397,8 @@ div.modalHeader p{
     
   }
 
-  div.messageModalContent button{
+  div.messageModalContent button,
+  div.rantModalContent button#closeRantModal{
     position: absolute;
     top: 10px;
     right:10px;
@@ -417,12 +417,14 @@ div.modalHeader p{
     transition: all 0.2s ease-out;
   }  
 
-  div.messageModalContent button:hover{
+  div.messageModalContent button:hover,
+  div.rantModalContent button#closeRantModal:hover{
     background: rgba(255, 255, 255, 0.55);
     font-weight: bold;
   }
 
   div.messageModalContent textarea,
+  div.rantModalContent textarea,
   div.messageModalContent input[type="text"],
   div.messageModalContent input[type="email"]{
     position:relative;
@@ -458,7 +460,8 @@ div.modalHeader p{
     opacity: 0.8;
 }
 
-div.messageModalContent input[type="submit"]{
+div.messageModalContent input[type="submit"],
+div.rantModalContent button#rantCopyButton{
     display: block;
     appearance: none;
     -moz-appearance: none;
@@ -480,31 +483,52 @@ div.messageModalContent input.is-hidden{
     display: none;
 }
 
-div.messageModalContent input[type="submit"]:hover{
+div.messageModalContent input[type="submit"]:hover,
+div.rantModalContent button#rantCopyButton:hover{
     background: rgba(0,0,0,0.8);
 
 }
 
 
 @media only screen and (min-width: 0px) and (max-width: 699px){
-    div.messageModalContent{
+    div.messageModalContent,
+    div.rantModalContent{
       width:80%;
     }
   }
   
   @media only screen and (min-width: 700px) and (max-width: 999px){
-    div.messageModalContent{
+    div.messageModalContent,
+    div.rantModalContent{
       width:45%;
     }
   }
   
   @media only screen and (min-width: 1000px){
-    div.messageModalContent{
+    div.messageModalContent,
+    div.rantModalContent{
       width:33%;
     }
   }
   @media only screen and (min-width: 1200px){
-    div.messageModalContent{
+    div.messageModalContent,
+    div.rantModalContent{
       width:30%;
     }
   }
+  
+  div.rantModalContent{
+    height:400px;
+  }
+
+  div.rantModalContent textarea{
+   position: relative;
+   width:90%;
+   margin-top: 40px; 
+  }
+
+  div.rantModalContent button#rantCopyButton{
+
+  }
+
+  
