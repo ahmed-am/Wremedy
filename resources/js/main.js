@@ -163,28 +163,28 @@ textInput.addEventListener('keydown', function (e) {
 
     if (e.keyCode == 32) //space
     {
-        rantText = gt = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     } else if (e.key == 'Enter') {
-        gt= rantText = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         rantTextProvider();
 
         textInput.value = "";
         rantText = "";
     } else if (e.key == ';') //semicolon
     {
-        rantText = gt = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     } else if (e.keyCode == 188) //comma
     {
-        rantText = gt = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     } else if (e.keyCode == 190) //dot
     {
-        rantText = gt = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     } else if (e.key == 'Escape') {
-        rantText = gt = rantText + textInput.value; 
+        rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     }
 
