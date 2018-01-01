@@ -1,14 +1,13 @@
-body{
+body {
     background: #161616;
     overflow: hidden;
-    font-family:  'Roboto',  Helvetica, Arial, sans-serif;
-    
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 
-video#backgroundVideo{
+video#backgroundVideo {
     position: fixed;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: auto;
@@ -22,35 +21,33 @@ video#backgroundVideo{
     background-size: cover;
 }
 
-div.containerButtons{
-    display:flex;
+div.containerButtons {
+    display: flex;
     display: -webkit-flex;
-    justify-content: center;   
-    opacity:0.15;
+    justify-content: center;
+    opacity: 0.15;
     height: 40px;
     transition: all 1s;
-    
 }
 
-div.containerButtons:hover{
+div.containerButtons:hover {
     opacity: 0.8;
     transition: all 0.3s;
 }
 
-div.container{
-    display:flex;
-    display:-webkit-flex;
-    justify-content: center;   
+div.container {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
     align-items: center;
     height: 85%;
 }
 
-button{
+button {
     cursor: pointer;
-    
 }
 
-input#textInput{
+input#textInput {
     width: 30%;
     height: 60px;
     background: rgba(255, 255, 255, 0.4);
@@ -65,18 +62,16 @@ input#textInput{
     -moz-appearance: none;
     -webkit-appearance: none;
     transition: all 5s ease-in;
-    
-
 }
 
-div.containerButtons button{
-    margin:2px;
+div.containerButtons button {
+    margin: 2px;
     background: rgba(255, 255, 255, 0.35);
-    float:left;
+    float: left;
     width: 40px;
     height: 40px;
     outline: none;
-    border:none;
+    border: none;
     border-radius: 30px;
     appearance: none;
     -moz-appearance: none;
@@ -84,31 +79,31 @@ div.containerButtons button{
     transition: all 0.2s ease-in;
 }
 
-div.containerButtons.uw button{
+div.containerButtons.uw button {
     background: rgb(149, 160, 104);
 }
 
-div.containerButtons.ms button{
+div.containerButtons.ms button {
     background: #5F2912;
 }
 
-div.containerButtons button#textButton{
-    color:white;
-    font-family:  'Lato',  Helvetica, Arial, sans-serif;
+div.containerButtons button#textButton {
+    color: white;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
     font-size: 1.25rem;
     font-weight: bold;
 }
 
 div.containerButtons button#textButton:hover,
-div.containerButtons button#textButton:active{
-    color:black;
+div.containerButtons button#textButton:active {
+    color: black;
 }
 
-div.containerButtons button#textButton.show{
+div.containerButtons button#textButton.show {
     text-decoration: line-through;
 }
 
-div.containerButtons button#circleButton div.circle{
+div.containerButtons button#circleButton div.circle {
     width: 20px;
     height: 20px;
     padding: 2px;
@@ -119,43 +114,42 @@ div.containerButtons button#circleButton div.circle{
 
 div.containerButtons button#circleButton.show div.circle,
 div.containerButtons button#circleButton.show:hover div.circle,
-div.containerButtons button#circleButton.show:active div.circle{
+div.containerButtons button#circleButton.show:active div.circle {
     background: transparent;
 }
 
 div.containerButtons button#circleButton:hover div.circle,
-div.containerButtons button#circleButton:active div.circle{
+div.containerButtons button#circleButton:active div.circle {
     background: black;
 }
 
-div.containerButtons button svg{
+div.containerButtons button svg {
     width: 18px;
     height: 18px;
 }
 
-div.containerButtons button:hover{
+div.containerButtons button:hover {
     background: rgba(255, 255, 255, 0.95);
     transform: scale(1.1);
 }
 
-div.containerButtons button svg path{
-    fill:#fff;
+div.containerButtons button svg path {
+    fill: #fff;
 }
 
-
 div.containerButtons button:hover svg path,
-div.containerButtons button:active svg path{
+div.containerButtons button:active svg path {
     transition: all 0.3s;
     fill: black;
 }
 
-div.buttonsTip{
+div.buttonsTip {
     position: absolute;
     left: 0;
-    right: 0;   
+    right: 0;
     width: 250px;
     text-align: center;
-    color:white;
+    color: white;
     padding: 5px;
     font-size: 0.8rem;
     height: 40px;
@@ -163,12 +157,11 @@ div.buttonsTip{
     border-radius: 5px;
     opacity: 0.0;
     margin: 20px auto 0 auto;
-    
 }
 
 button#prevButton,
-button#nextButton{
-    font-family:  'Lato',  Helvetica, Arial, sans-serif;
+button#nextButton {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
     font-size: 3rem;
     appearance: none;
     -moz-appearance: none;
@@ -176,75 +169,70 @@ button#nextButton{
     background: transparent;
     outline: none;
     border: none;
-    color:white;
+    color: white;
     opacity: 0.6;
     margin: 0px 20px 0px 20px;
     transition: all 0.2s ease-out;
 }
 
 button#prevButton:hover,
-button#nextButton:hover{
+button#nextButton:hover {
     opacity: 0.8;
     transform: scale(1.2);
 }
 
 button#prevButton:active,
-button#nextButton:active{
+button#nextButton:active {
     transition: all 0s;
     transform: scale(1);
 }
 
-button:disabled{
+button:disabled {
     visibility: hidden;
 }
 
-
-
-
-div.modal{
-    position:fixed;
-    display:flex;
+div.modal {
+    position: fixed;
+    display: flex;
     display: -webkit-flex;
-    justify-content:center;
+    justify-content: center;
     background: rgba(206, 205, 206, 0.6);
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
     transition: all 1s ease-in-out;
-    
-  }
+}
 
-  div.modalContent{
+div.modalContent {
     position: relative;
-    background:rgba(133, 167, 81, 0.95);
-    width:55%;
-    height:500px;
-    margin:auto;
-    z-index:100;
-    color:white;
+    background: rgba(133, 167, 81, 0.95);
+    width: 55%;
+    height: 500px;
+    margin: auto;
+    z-index: 100;
+    color: white;
     font-family: 'Roboto', Helvetica, sans-serif;
     border-radius: 10px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    
-  }
-  
-  div.modalHeader{
-      position: relative;
-      box-sizing: border-box;
-      height:110px;
-      width:100%;
-  }
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-
-  div.modalHeader  img.image{
+div.modalHeader {
     position: relative;
-    width:100px;
-    height:71px;
+    box-sizing: border-box;
+    height: 110px;
+    width: 100%;
+}
+
+div.modalHeader img.image {
+    position: relative;
+    width: 100px;
+    height: 71px;
     display: block;
     margin: auto;
 }
+
 
 /* 
   div.modalHeader h2{
@@ -253,220 +241,203 @@ div.modal{
       padding: 5px;
   } */
 
-  hr{
-    background: rgba(0,0,0,0.4);
+hr {
+    background: rgba(0, 0, 0, 0.4);
     height: 2px;
     border-radius: 5px;
-  }
+}
 
-  div.modalHeader hr{
+div.modalHeader hr {
     width: 50px;
     margin: auto;
 }
 
-
-div.modalHeader p{
+div.modalHeader p {
     text-align: center;
     font-size: 1.1rem;
     line-height: 10px;
     padding: 10px 0px 0px 0px;
-    
 }
 
-  div.modalHeader button#closeModal{
-      position: absolute;
-      top: 10px;
-      right:10px;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 5px;
-      border-radius: 50%;
-      outline:none;
-      border: none;
-      color: white;
-      height: 20px;
-      width:20px;   
-      font-size: 0.8rem;
-      text-align: center;
-      line-height: 10px;
-      font-weight: normal;
-      transition: all 0.2s ease-out;
-  }
-
-  div.modalHeader button#closeModal:hover{
-    background: rgba(255, 255, 255, 0.55);
-    font-weight: bold;
-}
-
-
-  div.modalBody{
-      position: relative;
-      box-sizing: border-box;
-      height: 390px;
-      width:100%;
-      
-      /* background: rgba(148, 186, 87, 0.75); */
-  }
-
-  div.modalBody hr{
-      width:80%;
-      margin: auto;
-      margin-bottom: 10px;
-     
-  }
-
-  div.modalBody p{
-      text-align: center;
-      font-size: 1rem;
-      padding: 0px 5px 0px 5px;
-  }
-
-  div.modalBody p.small{
-    font-size: 0.8rem;
-    }
-  
-  div.modalBody p.padding{
-      padding:8px;
-  }
-
-  
-  div.modalBody div.instructions{
-      
-      width: 90%;
-      border-radius: 10px;
-      height: 260px;
-      background: rgba(255, 255, 255, 0.2);
-      margin: auto;
-      box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
-      
-  }
-
-    div.modalBody div.instructions img{
-    display: block;
-    margin: auto;
-    padding: 5px;
-    }
-
-    
-
-
-    div.modalBody div.instructions p{
-        text-align: center;
-        color: #1b2218;
-        font-size: 0.9rem;
-        padding: 6px;
-
-    }
-
-
-  @media only screen and (min-width: 0px) and (max-width: 699px){
-    div.modalContent{
-      width:80%;
-    }
-  }
-  
-  @media only screen and (min-width: 700px) and (max-width: 999px){
-    div.modalContent{
-      width:45%;
-    }
-  }
-  
-  @media only screen and (min-width: 1000px){
-    div.modalContent{
-      width:33%;
-    }
-  }
-  @media only screen and (min-width: 1200px){
-    div.modalContent{
-      width:30%;
-    }
-  }
-
-  
-  div.messageModalContent,
-  div.rantModalContent{
-    position: relative;
-    background:rgba(133, 167, 81, 0.75);
-    width:70%;
-    height:500px;
-    margin:auto;
-    z-index:100;
-    color:white;
-    font-family: 'Roboto', Helvetica, sans-serif;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    
-  }
-
-  div.messageModalContent button,
-  div.rantModalContent button#closeRantModal{
+div.modalHeader button#closeModal {
     position: absolute;
     top: 10px;
-    right:10px;
+    right: 10px;
     background: rgba(255, 255, 255, 0.15);
     padding: 5px;
     border-radius: 50%;
-    outline:none;
+    outline: none;
     border: none;
     color: white;
     height: 20px;
-    width:20px;   
+    width: 20px;
     font-size: 0.8rem;
     text-align: center;
     line-height: 10px;
     font-weight: normal;
     transition: all 0.2s ease-out;
-  }  
+}
 
-  div.messageModalContent button:hover,
-  div.rantModalContent button#closeRantModal:hover{
+div.modalHeader button#closeModal:hover {
     background: rgba(255, 255, 255, 0.55);
     font-weight: bold;
-  }
+}
 
-  div.messageModalContent textarea,
-  div.rantModalContent textarea,
-  div.messageModalContent input[type="text"],
-  div.messageModalContent input[type="email"]{
-    position:relative;
+div.modalBody {
+    position: relative;
+    box-sizing: border-box;
+    height: 390px;
+    width: 100%;
+    /* background: rgba(148, 186, 87, 0.75); */
+}
+
+div.modalBody hr {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+div.modalBody p {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0px 5px 0px 5px;
+}
+
+div.modalBody p.small {
+    font-size: 0.8rem;
+}
+
+div.modalBody p.padding {
+    padding: 8px;
+}
+
+div.modalBody div.instructions {
+    width: 90%;
+    border-radius: 10px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: auto;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+div.modalBody div.instructions img {
+    display: block;
+    margin: auto;
+    padding: 5px;
+}
+
+div.modalBody div.instructions p {
+    text-align: center;
+    color: #1b2218;
+    font-size: 0.9rem;
+    padding: 6px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 699px) {
+    div.modalContent {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 999px) {
+    div.modalContent {
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    div.modalContent {
+        width: 33%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    div.modalContent {
+        width: 30%;
+    }
+}
+
+div.messageModalContent,
+div.rantModalContent {
+    position: relative;
+    background: rgba(133, 167, 81, 0.75);
+    width: 70%;
+    height: 500px;
+    margin: auto;
+    z-index: 100;
+    color: white;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+div.messageModalContent button,
+div.rantModalContent button#closeRantModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    color: white;
+    height: 20px;
+    width: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 10px;
+    font-weight: normal;
+    transition: all 0.2s ease-out;
+}
+
+div.messageModalContent button:hover,
+div.rantModalContent button#closeRantModal:hover {
+    background: rgba(255, 255, 255, 0.55);
+    font-weight: bold;
+}
+
+div.messageModalContent textarea,
+div.rantModalContent textarea,
+div.messageModalContent input[type="text"],
+div.messageModalContent input[type="email"] {
+    position: relative;
     width: 70%;
     font-size: 1rem;
     border-radius: 10px;
     color: rgb(36, 36, 35);
     display: block;
-    margin: 15px auto 15px auto ;
+    margin: 15px auto 15px auto;
     line-height: 20px;
     padding: 10px;
     outline: none;
-    border:none; 
+    border: none;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    font-family: 'Roboto',Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 1rem;
+}
 
-  }
-
-
-  div.messageModalContent p{
+div.messageModalContent p {
     font-size: 1rem;
     padding: 10px;
     text-align: center;
     margin: 20px 5px 5px 5px;
-  }
+}
 
-  div.messageModalContent input[type="text"],
-  div.messageModalContent input[type="email"]{
-    
+div.messageModalContent input[type="text"],
+div.messageModalContent input[type="email"] {
     opacity: 0.8;
 }
 
 div.messageModalContent input[type="submit"],
-div.rantModalContent button#rantCopyButton{
+div.rantModalContent button#rantCopyButton {
     display: block;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    margin:auto;
+    margin: auto;
     border: none;
     outline: none;
     background: rgba(255, 255, 255, 0.3);
@@ -479,56 +450,51 @@ div.rantModalContent button#rantCopyButton{
     font-size: 1rem;
 }
 
-div.messageModalContent input.is-hidden{
+div.messageModalContent input.is-hidden {
     display: none;
 }
 
 div.messageModalContent input[type="submit"]:hover,
-div.rantModalContent button#rantCopyButton:hover{
-    background: rgba(0,0,0,0.8);
-
+div.rantModalContent button#rantCopyButton:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-
-@media only screen and (min-width: 0px) and (max-width: 699px){
+@media only screen and (min-width: 0px) and (max-width: 699px) {
     div.messageModalContent,
-    div.rantModalContent{
-      width:80%;
+    div.rantModalContent {
+        width: 80%;
     }
-  }
-  
-  @media only screen and (min-width: 700px) and (max-width: 999px){
+}
+
+@media only screen and (min-width: 700px) and (max-width: 999px) {
     div.messageModalContent,
-    div.rantModalContent{
-      width:45%;
+    div.rantModalContent {
+        width: 45%;
     }
-  }
-  
-  @media only screen and (min-width: 1000px){
+}
+
+@media only screen and (min-width: 1000px) {
     div.messageModalContent,
-    div.rantModalContent{
-      width:33%;
+    div.rantModalContent {
+        width: 33%;
     }
-  }
-  @media only screen and (min-width: 1200px){
+}
+
+@media only screen and (min-width: 1200px) {
     div.messageModalContent,
-    div.rantModalContent{
-      width:30%;
+    div.rantModalContent {
+        width: 30%;
     }
-  }
-  
-  div.rantModalContent{
-    height:400px;
-  }
+}
 
-  div.rantModalContent textarea{
-   position: relative;
-   width:90%;
-   margin-top: 40px; 
-  }
+div.rantModalContent {
+    height: 400px;
+}
 
-  div.rantModalContent button#rantCopyButton{
+div.rantModalContent textarea {
+    position: relative;
+    width: 90%;
+    margin-top: 40px;
+}
 
-  }
-
-  
+div.rantModalContent button#rantCopyButton {}
