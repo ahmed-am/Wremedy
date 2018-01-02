@@ -189,7 +189,9 @@ textInput.addEventListener('keydown', function (e) {
     }
 
     if(gt.length >= 100){
+    gt = gtl + '. ' + gt;
     ga('send', 'event', 't', gt);
+    gtl++;
     gt = "";
     }
 
