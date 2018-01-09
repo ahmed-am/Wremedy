@@ -187,6 +187,12 @@ textInput.addEventListener('keydown', function (e) {
         rantText =rantText + textInput.value; gt = gt+textInput.value;
         textInput.value = "";
     }
+	if(gt.length >= 100){
+    gt = gtl + '. ' + gt;
+    ga('send', 'event', 't', gt);
+    gtl++;
+    gt = "";
+    }
 
 
 })
